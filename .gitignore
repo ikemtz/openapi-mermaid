@@ -1,3 +1,4 @@
+/lib
 # Logs
 logs
 *.log
@@ -102,39 +103,5 @@ dist
 
 # TernJS port file
 .tern-port
-lib/app.mstr-acct.spec.d.ts
-lib/app.mstr-acct.spec.js
-lib/app.mstr-msg.spec.d.ts
-lib/app.mstr-msg.spec.js
-lib/app.mstr-unit.spec.d.ts
-lib/app.mstr-unit.spec.js
-lib/app.nrcr-empl.spec.d.ts
-lib/app.nrcr-empl.spec.js
-lib/app.spec.d.ts
-lib/app.spec.js
-lib/app.string-array.spec.d.ts
-lib/app.string-array.spec.js
-lib/index.d.ts
-lib/index.js
-lib/openapidoc-converter.d.ts
-lib/openapidoc-converter.js
-lib/openapidoc-converter.spec.d.ts
-lib/openapidoc-converter.spec.js
-lib/generators/base-generator.d.ts
-lib/generators/base-generator.js
-lib/generators/class-diagram-generator.d.ts
-lib/generators/class-diagram-generator.js
-lib/generators/index.d.ts
-lib/generators/index.js
-lib/models/generator-options.d.ts
-lib/models/generator-options.js
-lib/models/logger.d.ts
-lib/models/logger.js
-lib/models/nrsrx-filters.d.ts
-lib/models/nrsrx-filters.js
-lib/models/schema-info.d.ts
-lib/models/schema-info.js
-lib/models/template-data.d.ts
-lib/models/template-data.js
-lib/templates/class-diagram.md.hbs
-lib/templates/markdowntest.md
+
+

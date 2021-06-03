@@ -8,7 +8,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
     "test": "npm run build && jest --collect-coverage",
-    "prep:lib": "rm -rv ./lib/*.spec.* && rm -rv ./lib/**/*.spec.* && cp -v ./package.json ./lib/ && cp -v ./LICENSE ./lib/ && cp -v ./README.md ./lib/",
+    "prep:lib": "rm -rv ./lib/*.spec.* || true && rm -rv ./lib/**/*.spec.* || true && cp -v ./package.json ./lib/ && cp -v ./LICENSE ./lib/ && cp -v ./README.md ./lib/",
     "debug": "npm run build && node --inspect-brk ./lib/app.js"
   },
   "repository": {
