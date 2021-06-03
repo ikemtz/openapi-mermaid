@@ -80,7 +80,7 @@ steps:
       organization: 'ikemtz'
 
   - task: SnykSecurityScan@0
-    condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/main'))
+    condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
     inputs:
       serviceConnectionEndpoint: 'synk'
       testType: 'app'
@@ -119,14 +119,14 @@ steps:
       tag: 'oapi-$(Build.BuildNumber)'
       tagMessage: 'oapi-$(Build.BuildNumber)'
       useLightweightTags: true
-      conditions: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+      conditions: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
 trigger:
   batch: true
   branches:
     include:
-      - main
+      - master
 pr:
   branches:
     include:
-      - main
+      - master
