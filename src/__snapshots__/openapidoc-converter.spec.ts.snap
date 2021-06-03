@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpenApiDocConverter Tests should handle invalid getPropertyTypeScriptType() 1`] = `[Error: Invalid Propety Type]`;

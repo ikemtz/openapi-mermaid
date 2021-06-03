@@ -1,0 +1,23 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "StringArrayTestObject",
+    "version": "1.0"
+  },
+  "components": {
+    "schemas": {
+      "StringArrayTestObject": {
+        "type": "object",
+        "properties": {
+          "typeCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

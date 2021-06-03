@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules\\typescript\\lib",
+		"files.eol": "\n",
+		"files.insertFinalNewline": true,
+		"typescript.format.semicolons": "insert",
+		"typescript.preferences.quoteStyle": "single",
+		"typescript.suggest.completeFunctionCalls": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabCompletion": "on",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"javascript.format.semicolons": "insert",
+		"debug.node.autoAttach": "off"
+	}
+}
