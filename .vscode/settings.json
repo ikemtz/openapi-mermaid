@@ -1,0 +1,18 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabCompletion": "on",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[sql]": {
+    "editor.defaultFormatter": "ms-mssql.mssql"
+  },
+  "debug.node.autoAttach": "on",
+  "editor.tabSize": 2,
+  "javascript.preferences.quoteStyle": "single"
+}

@@ -1,0 +1,326 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NRSRx Employee OData Microservice",
+    "description": "<div style='color:gray;font-weight:bold'>Build #: <span style='font-weight:bolder'>1.20.152.10</span></div>",
+    "version": "1.0"
+  },
+  "paths": {
+    "/odata/v1/Employees": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Limits the properties returned in the result.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Indicates the related entities to be represented inline. The maximum depth is 2.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeODataEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EmployeeCertification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "employeeId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "certificationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "certificationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresOnUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeCompetency": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "employeeId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "competencyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "competencyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresOnUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeHealthItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "employeeId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "healthItemId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "healthItemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresOnUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Employee": {
+        "required": [
+          "certificationCount",
+          "competencyCount",
+          "createdBy",
+          "createdOnUtc",
+          "email",
+          "firstName",
+          "healthItemCount",
+          "hireDate",
+          "id",
+          "isEnabled",
+          "lastName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "lastName": {
+            "maxLength": 250,
+            "type": "string"
+          },
+          "firstName": {
+            "maxLength": 250,
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mobilePhone": {
+            "maxLength": 25,
+            "type": "string",
+            "nullable": true
+          },
+          "homePhone": {
+            "maxLength": 25,
+            "type": "string",
+            "nullable": true
+          },
+          "photo": {
+            "maxLength": 4000,
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "maxLength": 250,
+            "type": "string"
+          },
+          "addressLine1": {
+            "maxLength": 250,
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "maxLength": 250,
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 150,
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "maxLength": 2,
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "maxLength": 10,
+            "type": "string",
+            "nullable": true
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "hireDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fireDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "totalHoursOfService": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "certificationCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "competencyCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "healthItemCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdBy": {
+            "maxLength": 250,
+            "type": "string"
+          },
+          "updatedBy": {
+            "maxLength": 250,
+            "type": "string",
+            "nullable": true
+          },
+          "createdOnUtc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedOnUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "employeeCertifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeCertification"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "employeeCompetencies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeCompetency"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "employeeHealthItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeHealthItem"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeODataEnvelope": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Employee"
+            },
+            "nullable": true
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "oauth2",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://nrsrx-demo.auth0.com/authorize?audience=IM-NurseCron",
+            "scopes": {
+              "openid": "required"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
