@@ -89,7 +89,7 @@ steps:
       failOnIssues: false
       projectName: 'openapi-mermaid'
       organization: 'ikemtz'
-      testDirectory: '$(Build.SourcesDirectory)/src'
+      testDirectory: '$(Build.SourcesDirectory)'
 
   - task: Npm@1
     displayName: 'npm prep:lib'
