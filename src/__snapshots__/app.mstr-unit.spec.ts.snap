@@ -15,8 +15,11 @@ Array [
 `;
 
 exports[`Url Based - Full Integration Tests MasterCorp Unit Service should generate files: class-diagram.html 1`] = `
-"<html>
+"<!DOCTYPE html>
+<html lang=\\"en\\">
   <head>
+    <title>Mermaid Class Diagram - by openapi-mermaid</title>
+    <meta content=\\"text/html; charset=utf-8\\" />
     <script src=\\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\\"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
   </head>
@@ -229,8 +232,11 @@ Array [
 `;
 
 exports[`Url Based - Full Integration Tests MasterCorp Unit Service should not generate files: class-diagram.html 1`] = `
-"<html>
+"<!DOCTYPE html>
+<html lang=\\"en\\">
   <head>
+    <title>Mermaid Class Diagram - by openapi-mermaid</title>
+    <meta content=\\"text/html; charset=utf-8\\" />
     <script src=\\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\\"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
   </head>
@@ -353,8 +359,11 @@ Array [
 `;
 
 exports[`Url Based - Full Integration Tests MasterCorp Unit Service should skip formGroup Fac files: class-diagram.html 1`] = `
-"<html>
+"<!DOCTYPE html>
+<html lang=\\"en\\">
   <head>
+    <title>Mermaid Class Diagram - by openapi-mermaid</title>
+    <meta content=\\"text/html; charset=utf-8\\" />
     <script src=\\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\\"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
   </head>
