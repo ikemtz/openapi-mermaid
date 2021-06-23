@@ -16,6 +16,7 @@ import { generateDiagrams } from 'openapi-mermaid';
 generateDiagrams({
   openApiJsonUrl: '{Your Swagger Enpoint URL here}',
   outputPath: './{outputFolder}/',
+  outputFileName: 'class-diagram', /* This is an optional parameter */
 });
 ```
 
@@ -27,6 +28,7 @@ import { generateDiagrams } from 'openapi-mermaid';
 generateDiagrams({
   openApiJsonFileName: '{location and file name of your OpenApi document}',
   outputPath: './{outputFolder}/',
+  outputFileName: 'class-diagram', /* This is an optional parameter */
 });
 ```
 
@@ -38,7 +40,6 @@ const generator = require('openapi-mermaid');
 generator.generateDiagrams({
   openApiJsonUrl: '{Your Swagger Enpoint URL here}',
   outputPath: './{outputFolder}/',
-  genAngularFormGroups: true /* Set this to true if only if you're in an Angular project*/
 });
 ```
 

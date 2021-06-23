@@ -54,7 +54,7 @@ describe('Url Based - Full Integration Tests', () => {
         ...options,
         logger: new MockConsoleLogger(),
         templates: {
-          classDiagram: '',
+          mdClassDiagram: '',
         },
       });
       ValidateFiles(options);
