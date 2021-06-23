@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import fetch from 'node-fetch';
 import { OpenAPIObject } from 'openapi3-ts';
-import { ClassDiagramGenerator } from './generators';
+import { HtmlClassDiagramGenerator, MdClassDiagramGenerator } from './generators';
 import { IGeneratorOptions, setGeneratorOptionDefaults } from './models/generator-options';
 import { ITemplateData } from './models/template-data';
 import { OpenApiDocConverter } from './openapidoc-converter';
@@ -38,6 +38,8 @@ function generateOutput(options: IGeneratorOptions, templateData: ITemplateData)
     fs.rmdirSync(options.outputPath);
   }
   fs.mkdirSync(options.outputPath, { recursive: true });
-  const classDiagramGenerator = new ClassDiagramGenerator(options);
-  classDiagramGenerator.generate(templateData);
+  const htmlClassDiagramGenerator = new HtmlClassDiagramGenerator(options);
+  htmlClassDiagramGenerator.generate(templateData);
+  const mdlassDiagramGenerator = new MdClassDiagramGenerator(options);
+  mdlassDiagramGenerator.generate(templateData);
 }

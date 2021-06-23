@@ -6,6 +6,7 @@ import { IEntity, IReferenceProperty, IValueProperty } from './template-data';
 export interface IGeneratorOptions {
   logger?: ILogger;
   outputPath: string;
+  outputFileName?: string;
   openApiJsonUrl?: string;
   openApiJsonFileName?: string;
   typeFilterCallBack?: (entity: IEntity, index: number, array: IEntity[]) => boolean;
@@ -14,7 +15,8 @@ export interface IGeneratorOptions {
   templates?: ITemplates | null;
 }
 export interface ITemplates {
-  classDiagram: string;
+  htmlClassDiagram?: string;
+  mdClassDiagram?: string;
 }
 export function defaultFilter(
   value: IEntity | IValueProperty | IReferenceProperty,
@@ -31,7 +33,8 @@ export function setGeneratorOptionDefaults(options: IGeneratorOptions): IGenerat
   options.referencePropertyTypeFilterCallBack = options.referencePropertyTypeFilterCallBack ?? defaultFilter;
   options.templates = {
     ...options.templates,
-    classDiagram: options.templates?.classDiagram ?? `${templateFolder}/class-diagram.md.hbs`,
+    mdClassDiagram: options.templates?.mdClassDiagram ?? `${templateFolder}/class-diagram.md.hbs`,
+    htmlClassDiagram: options.templates?.htmlClassDiagram ?? `${templateFolder}/class-diagram.html.hbs`,
   };
   return options;
 }
