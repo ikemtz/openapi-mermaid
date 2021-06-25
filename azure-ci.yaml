@@ -23,7 +23,7 @@ steps:
       organization: 'ikemtz'
       scannerMode: CLI
       configMode: manual
-      cliProjectKey: 'openapi-mermaid'
+      cliProjectKey: 'ikemtz_openapi-mermaid'
       cliProjectName: 'openapi-mermaid'
       cliSources: 'src'
       extraProperties: |
