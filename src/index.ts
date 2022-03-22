@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import fetch from 'node-fetch';
+import { Axios } from 'axios';
 import { OpenAPIObject } from 'openapi3-ts';
 import { HtmlClassDiagramGenerator, MdClassDiagramGenerator } from './generators';
 import { IGeneratorOptions, setGeneratorOptionDefaults } from './models/generator-options';
@@ -19,8 +19,9 @@ export async function generateDiagrams(options: IGeneratorOptions): Promise<void
 async function getOpenApiDocumentAsync(options: IGeneratorOptions): Promise<OpenAPIObject> {
   let apiDoc: OpenAPIObject;
   if (options.openApiJsonUrl) {
-    const response = await fetch(options.openApiJsonUrl);
-    apiDoc = (await response.json()) as OpenAPIObject;
+    const axios = new Axios();
+    const response = await axios.get(options.openApiJsonUrl);
+    apiDoc = JSON.parse(response.data as string) as OpenAPIObject;
   } else if (options.openApiJsonFileName) {
     const response = fs.readFileSync(`${__dirname}/${options.openApiJsonFileName}`);
     apiDoc = JSON.parse(response.toString()) as OpenAPIObject;
