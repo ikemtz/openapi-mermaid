@@ -24,7 +24,7 @@ export abstract class BaseGenerator<TContextSchema> {
         this.generatorOptions.logger?.error(`This is likely an issue with the template.`);
         this.generatorOptions.logger?.error(`Data: ${JSON.stringify(context)}`);
         this.generatorOptions.logger?.error(`Goto: https://github.com/ikemtz/openapi-ts-generator to report an issue if necessary.`);
-        this.generatorOptions.logger?.error(err);
+        this.generatorOptions.logger?.error(err as never);
         throw err;
       }
     } else {
