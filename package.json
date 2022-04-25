@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run format && npm run lint && tsc && cp -rfv ./src/templates ./lib",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts --output-file ./eslint-report.json --format json",
     "test": "npm run build && jest --collect-coverage",
     "prep:lib": "rm -rv ./lib/*.spec.* || true && rm -rv ./lib/**/*.spec.* || true && cp -v ./package.json ./lib/ && cp -v ./LICENSE ./lib/ && cp -v ./README.md ./lib/",
     "debug": "npm run build && node --inspect-brk ./lib/app.js"
