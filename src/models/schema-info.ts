@@ -7,7 +7,7 @@ export class SchemaWrapperInfo {
   public propertyReferenceObject: ReferenceObject = { $ref: '' };
   public isEnum?: boolean;
 
-  public readonly enumValues: (string | { key?: number, name: string; })[];
+  public readonly enumValues: (string | { key?: number; name: string })[];
   public readonly componentSchemaObject: SchemaObject;
   public readonly valueProperties: IValueProperty[];
   public referenceProperties: IReferenceProperty[];
