@@ -5,7 +5,9 @@ import { IReferenceProperty, IValueProperty } from './template-data';
 export class SchemaWrapperInfo {
   public propertySchemaObject: SchemaObject = {};
   public propertyReferenceObject: ReferenceObject = { $ref: '' };
+  public isEnum?: boolean;
 
+  public readonly enumValues: (string | { key?: number, name: string; })[];
   public readonly componentSchemaObject: SchemaObject;
   public readonly valueProperties: IValueProperty[];
   public referenceProperties: IReferenceProperty[];
@@ -14,6 +16,7 @@ export class SchemaWrapperInfo {
     this.componentSchemaObject = schemaItem;
     this.valueProperties = [];
     this.referenceProperties = [];
+    this.enumValues = [];
   }
 
   public updateReferenceProperties(options: IGeneratorOptions): void {
