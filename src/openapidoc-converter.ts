@@ -6,7 +6,7 @@ import { IEntity, IImportType, IReferenceProperty, ITemplateData, IValueProperty
 export class OpenApiDocConverter {
   public readonly endAlphaNumRegex = /[A-z0-9]*$/s;
   public readonly startNumberregex = /^\d*/;
-  constructor(private readonly options: IGeneratorOptions, private readonly apiDocument: OpenAPIObject) { }
+  constructor(private readonly options: IGeneratorOptions, private readonly apiDocument: OpenAPIObject) {}
 
   public convertDocument(): ITemplateData {
     const entities = this.convertEntities();
@@ -46,7 +46,10 @@ export class OpenApiDocConverter {
       ...(schemaWrapperInfo.componentSchemaObject.enum || []).map((x: string) => {
         const key = this.startNumberregex.exec(x)?.at(0);
         const name = this.endAlphaNumRegex.exec(x)?.at(0) || '';
-        return { key: key ? +key : undefined, name };
+        return {
+          name,
+          key: key ? +key : undefined,
+        };
       }),
     );
   }
@@ -59,7 +62,7 @@ export class OpenApiDocConverter {
       ) {
         schemaWrapperInfo.valueProperties.push(this.convertSchemaObjectToPropertyType(propertyName, schemaWrapperInfo));
       } else if (
-        (schemaWrapperInfo.propertyReferenceObject = schemaWrapperInfo.componentSchemaObject.properties[propertyName] as ReferenceObject)
+        (schemaWrapperInfo.propertyReferenceObject = schemaWrapperInfo.componentSchemaObject.properties[propertyName] as ReferenceObject) //NOSONAR
           .$ref
       ) {
         schemaWrapperInfo.referenceProperties.push(this.convertReferenceObjectToPropertyType(propertyName, schemaWrapperInfo));
@@ -122,7 +125,7 @@ export class OpenApiDocConverter {
 
   public getPropertyType(schemaWrapperInfo: SchemaWrapperInfo): string {
     if (schemaWrapperInfo.propertySchemaObject.type === 'array' && schemaWrapperInfo.propertySchemaObject.items) {
-      return (schemaWrapperInfo.propertySchemaObject.items as { type: string; }).type;
+      return (schemaWrapperInfo.propertySchemaObject.items as { type: string }).type;
     } else if (schemaWrapperInfo.propertySchemaObject.type === 'integer' && schemaWrapperInfo.propertySchemaObject.enum) {
       return 'string | number';
     } else if (schemaWrapperInfo.propertySchemaObject.type === 'integer') {
