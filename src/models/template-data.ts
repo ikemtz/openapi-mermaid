@@ -3,6 +3,8 @@ export interface ITemplateData {
   paths: string[];
 }
 export interface IEntity {
+  isEnum?: boolean;
+  enumValues: (string | { key?: number; name: string })[];
   name: string;
   importTypes: IImportType[];
   valueProperties: IValueProperty[];

@@ -27,6 +27,11 @@ classDiagram
 {{#referenceProperties}}
     +{{referenceTypeName}}{{#if isArray}}[]{{/if}}: {{name}};
 {{/referenceProperties}}
+{{#if isEnum}}
+{{#enumValues}}
+    {{name}}
+{{/enumValues}}
+{{/if}}
   }
 {{/each}}
       </div>
