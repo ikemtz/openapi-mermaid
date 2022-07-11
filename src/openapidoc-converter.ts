@@ -6,7 +6,7 @@ import { IEntity, IImportType, IReferenceProperty, ITemplateData, IValueProperty
 export class OpenApiDocConverter {
   public readonly endAlphaNumRegex = /[A-z0-9]*$/s;
   public readonly startNumberregex = /^\d*/;
-  constructor(private readonly options: IGeneratorOptions, private readonly apiDocument: OpenAPIObject) {}
+  constructor(private readonly options: IGeneratorOptions, private readonly apiDocument: OpenAPIObject) { }
 
   public convertDocument(): ITemplateData {
     const entities = this.convertEntities();
@@ -28,7 +28,10 @@ export class OpenApiDocConverter {
         schemaWrapperInfo.updateReferenceProperties(this.options);
         const entity: IEntity = {
           isEnum: schemaWrapperInfo.isEnum,
-          enumValues: schemaWrapperInfo.enumValues,
+          enumValues: schemaWrapperInfo.enumValues.map((t) =>
+            (typeof t === 'string' || t instanceof String) ? t :
+              ({ ...t, key: t.key || 0, })
+          ),
           name: schemaName,
           referenceProperties: schemaWrapperInfo.referenceProperties,
           valueProperties: schemaWrapperInfo.valueProperties.filter(this.options.valuePropertyTypeFilterCallBack || defaultFilter),
@@ -48,7 +51,7 @@ export class OpenApiDocConverter {
         const name = this.endAlphaNumRegex.exec(x)?.at(0) || '';
         return {
           name,
-          key: key ? +key : undefined,
+          key: key ? +key : 0,
         };
       }),
     );
@@ -125,7 +128,7 @@ export class OpenApiDocConverter {
 
   public getPropertyType(schemaWrapperInfo: SchemaWrapperInfo): string {
     if (schemaWrapperInfo.propertySchemaObject.type === 'array' && schemaWrapperInfo.propertySchemaObject.items) {
-      return (schemaWrapperInfo.propertySchemaObject.items as { type: string }).type;
+      return (schemaWrapperInfo.propertySchemaObject.items as { type: string; }).type;
     } else if (schemaWrapperInfo.propertySchemaObject.type === 'integer' && schemaWrapperInfo.propertySchemaObject.enum) {
       return 'string | number';
     } else if (schemaWrapperInfo.propertySchemaObject.type === 'integer') {
