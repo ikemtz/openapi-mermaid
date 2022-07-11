@@ -148,6 +148,7 @@ classDiagram
     +Customer[]: customers;
   }
   class ShippingTypes{
+    <<enumeration>>
     Other
     Air
     Truck

@@ -28,6 +28,7 @@ classDiagram
     +{{referenceTypeName}}{{#if isArray}}[]{{/if}}: {{name}};
 {{/referenceProperties}}
 {{#if isEnum}}
+    <<enumeration>>
 {{#enumValues}}
     {{name}}
 {{/enumValues}}
