@@ -4,7 +4,7 @@ import { ValidateFiles } from './app.spec';
 import { IGeneratorOptions } from './models/generator-options';
 
 const adventureWorksOptions = (): IGeneratorOptions => ({
-  openApiJsonUrl: 'https://awod.ikemtz.com/swagger/v1/swagger.json',
+  openApiJsonUrl: 'https://awod-ikemtz.azurewebsites.net/swagger/v1/swagger.json',
   outputPath: './jest_output/awod/',
   typeFilterCallBack: nrsrxTypeFilterCallBack,
   valuePropertyTypeFilterCallBack: nrsrxValuePropertyTypeFilterCallBack,
