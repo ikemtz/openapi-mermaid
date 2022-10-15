@@ -4,7 +4,7 @@ import { ValidateFiles } from './app.spec';
 import { IGeneratorOptions } from './models/generator-options';
 
 const fileEmployeeGenerationOptionsFactory = (): IGeneratorOptions => ({
-  openApiJsonFileName: '../src/open-api-spec-docs/nrcrn-empl.json',
+  openApiJsonFileName: `${__dirname}/open-api-spec-docs/nrcrn-empl.json`,
   outputPath: './jest_output/empl/',
   typeFilterCallBack: nrsrxTypeFilterCallBack,
   valuePropertyTypeFilterCallBack: nrsrxValuePropertyTypeFilterCallBack,

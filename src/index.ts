@@ -22,7 +22,7 @@ async function getOpenApiDocumentAsync(options: IGeneratorOptions): Promise<Open
     const response = await axios.get(options.openApiJsonUrl);
     apiDoc = response.data as OpenAPIObject;
   } else if (options.openApiJsonFileName) {
-    const response = fs.readFileSync(`${__dirname}/${options.openApiJsonFileName}`);
+    const response = fs.readFileSync(options.openApiJsonFileName);
     apiDoc = JSON.parse(response.toString()) as OpenAPIObject;
   } else {
     throw new Error(
