@@ -25,6 +25,7 @@ classDiagram
   Customer ..> CustomerAddress
   Customer ..> Order
   CustomerAddress ..> Customer
+  Order ..> OrderStatusTypes
   Order ..> ShippingTypes
   Order ..> Customer
   Order ..> OrderAddress
@@ -70,7 +71,6 @@ classDiagram
     +date: date
     +date: dueDate
     +date: shipDate
-    +number: status
     +bool: isOnlineOrder
     +string: num
     +string: purchaseOrderNum
@@ -83,6 +83,7 @@ classDiagram
     +number: freight
     +number: totalDue
     +string: comment
+    +OrderStatusTypes: statusType;
     +ShippingTypes: shippingType;
     +Customer: customer;
     +OrderAddress: shipToAddress;
@@ -110,6 +111,13 @@ classDiagram
     +number: lineTotal
     +Order: order;
     +Product: product;
+  }
+  class OrderStatusTypes{
+    <<enumeration>>
+    Processing
+    WaitingOnShipping
+    InTransit
+    Received
   }
   class Product{
     +uuid: id
@@ -173,6 +181,7 @@ classDiagram
   Customer ..> CustomerAddress
   Customer ..> Order
   CustomerAddress ..> Customer
+  Order ..> OrderStatusTypes
   Order ..> ShippingTypes
   Order ..> Customer
   Order ..> OrderAddress
@@ -218,7 +227,6 @@ classDiagram
     +date: date
     +date: dueDate
     +date: shipDate
-    +number: status
     +bool: isOnlineOrder
     +string: num
     +string: purchaseOrderNum
@@ -231,6 +239,7 @@ classDiagram
     +number: freight
     +number: totalDue
     +string: comment
+    +OrderStatusTypes: statusType;
     +ShippingTypes: shippingType;
     +Customer: customer;
     +OrderAddress: shipToAddress;
@@ -258,6 +267,13 @@ classDiagram
     +number: lineTotal
     +Order: order;
     +Product: product;
+  }
+  class OrderStatusTypes{
+    <<enumeration>>
+    Processing
+    WaitingOnShipping
+    InTransit
+    Received
   }
   class Product{
     +uuid: id
