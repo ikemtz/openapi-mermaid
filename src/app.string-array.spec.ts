@@ -4,7 +4,7 @@ import { ValidateFiles } from './app.spec';
 import { IGeneratorOptions } from './models/generator-options';
 
 const fileEmployeeGenerationOptionsFactory = (): IGeneratorOptions => ({
-  openApiJsonFileName: '../src/open-api-spec-docs/string-array-test-oject.json',
+  openApiJsonFileName: `${__dirname}/open-api-spec-docs/string-array-test-oject.json`,
   outputPath: './jest_output/string-array/',
 });
 

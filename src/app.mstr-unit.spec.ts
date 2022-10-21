@@ -5,7 +5,7 @@ import { IGeneratorOptions } from './models/generator-options';
 import { MockConsoleLogger } from './models/logger';
 
 const unitGenerationOptionsFactory = (): IGeneratorOptions => ({
-  openApiJsonFileName: './open-api-spec-docs/mstr-unit.json',
+  openApiJsonFileName: `${__dirname}/open-api-spec-docs/mstr-unit.json`,
   outputPath: './jest_output/unit/',
   typeFilterCallBack: nrsrxTypeFilterCallBack,
   valuePropertyTypeFilterCallBack: nrsrxValuePropertyTypeFilterCallBack,

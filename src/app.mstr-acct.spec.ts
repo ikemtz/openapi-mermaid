@@ -4,7 +4,7 @@ import { ValidateFiles } from './app.spec';
 import { IGeneratorOptions } from './models/generator-options';
 
 const accountGenerationOptionsFactory = (): IGeneratorOptions => ({
-  openApiJsonFileName: './open-api-spec-docs/mstr-acct.json',
+  openApiJsonFileName: `${__dirname}/open-api-spec-docs/mstr-acct.json`,
   outputPath: './jest_output/acct/',
   typeFilterCallBack: nrsrxTypeFilterCallBack,
   valuePropertyTypeFilterCallBack: nrsrxValuePropertyTypeFilterCallBack,
