@@ -1,4 +1,4 @@
-name: 2.$(DayOfYear)$(Rev:.rr)
+name: 3.$(DayOfYear)$(Rev:.rr)
 pool:
   demands: npm
 
