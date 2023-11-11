@@ -48,7 +48,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "handlebars": ">=4.x",
     "lodash": ">=4.x"
   },
