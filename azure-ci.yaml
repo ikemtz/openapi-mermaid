@@ -16,27 +16,24 @@ steps:
     inputs:
       verbose: false
 
-  - task: SonarCloudPrepare@1
+  - task: SonarCloudPrepare@4
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
       SonarCloud: 'SonarCloud IkeMtz'
       organization: 'ikemtz'
-      scannerMode: CLI
-      configMode: manual
+      scannerMode: 'CLI'
+      configMode: 'manual'
       cliProjectKey: 'ikemtz_openapi-mermaid'
       cliProjectName: 'openapi-mermaid'
       cliSources: 'src'
       extraProperties: |
-        # Additional properties that will be passed to the scanner, 
-        # Put one key=value per line, example:
-        # sonar.exclusions=**/*.test.ts
-         sonar.sources=src
-         sonar.sourceEncoding=UTF-8
-         sonar.exclusions=**/node_modules/**,**/jest_ouput/**,**/*.spec.ts,jest.config.js
-         sonar.test.inclusions=**/*.spec.ts
-         sonar.ts.tslintconfigpath=tslint.json
-         sonar.typescript.lcov.reportPaths=coverage/lcov.info
-         sonar.typescript.exclusions=**/node_modules/**
+        sonar.sources=src
+        sonar.sourceEncoding=UTF-8
+        sonar.exclusions=**/node_modules/**,**/jest_ouput/**,**/*.spec.ts,jest.config.js
+        sonar.test.inclusions=**/*.spec.ts
+        sonar.ts.tslintconfigpath=tslint.json
+        sonar.typescript.lcov.reportPaths=coverage/lcov.info
+        sonar.typescript.exclusions=**/node_modules/**
 
   - task: Npm@1
     displayName: 'npm build'
@@ -65,12 +62,11 @@ steps:
       searchFolder: '$(System.DefaultWorkingDirectory)/coverage/'
       testResultsFiles: junit.xml
       mergeTestResults: true
-      failTaskOnFailedTests: true
-
-  - task: SonarCloudAnalyze@1
+      failTaskOnFailedTests: true 
+  - task: SonarCloudAnalyze@4
     displayName: 'Run Code Analysis'
 
-  - task: SonarCloudPublish@1
+  - task: SonarCloudPublish@4
     displayName: 'Publish Quality Gate Result'
 
   - task: sonarcloud-buildbreaker@2
